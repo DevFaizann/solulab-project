@@ -19,3 +19,4 @@ router.put('/categories/:categoryId', updateCategory);
 router.delete('/categories/:categoryId', deleteCategory);
 
 module.exports = router;
+

@@ -1,0 +1,2 @@
+{"level":"info","message":"Server started on port ${config.PORT}"}
+{"level":"info","message":"Server started on port ${config.PORT}"}
