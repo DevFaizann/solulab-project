@@ -13,7 +13,7 @@ const productSchema = new Schema({
         type: String,
         required:true
     },
-    unitPrice: { //Unit price of the product
+    unitPrice: {//Unit price of the product
         type: Number,
         required: true
     },

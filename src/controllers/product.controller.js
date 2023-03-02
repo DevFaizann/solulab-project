@@ -66,23 +66,56 @@ exports.readProducts = async(req,res) => {
 
 //Update a particular record of the product
 exports.updateProduct = async(req,res) => {
-    try {
-        const product = await Product.findById(req.params.id);
+
+    try {//finding the product by its ID and updating it riht away
+        const {id} = req.params;
+        const product = await Product.findByIdAndUpdate(
+            id,
+            req.body,
+            { new: true }
+            );
+
         if(!product){
             return res.status(404).json({message: 'Product not found'});
         }
+        
+        
+        //getting fieldname and value from the body
+        // const {fieldName, value} = req.body;
+        // if(!fieldName || !value){//if any one of these is missing
+        //     return res.status(400).json({message: 'Invalid request'});
+        // }
+
         //as per my understanding of the question, this api should update a particular record of the product
         //therefore
-        const updatedProduct = await Product.findByIdAndUpdate(req.params.id,{ ...req.body}, {new: true});
-        //findByIdAndUpdate() method finds the product with the specified ID and updates it with the properties from
-        //req.body object.
-        //...req.body copies all the properties from the req.body object to a new object
-        //it is "object spread syntax"
-        //{new: true} tells the method to return the updated document
-        res.json(updatedProduct);
+        // product[fieldName] = value;
+
+        // const updatedProduct = await product.save();
+        // res.json(updatedProduct);
+        //updating the product with the provided 'fieldName' and 'value'
+        // res.json(updatedProduct);
+        
+        res.json(product);
     } catch (error) {
         console.error(error);
         res.status(500).json({message:'Server Error'});      
     }
 };
 
+
+//Deleting a product
+exports.deleteProduct = async (req, res) => {
+    try {
+      const product = await Product.findOneAndDelete({ _id: req.params.id });
+      
+      if (!product) {
+        return res.status(404).json({ message: 'Product not found' });
+      }
+  
+      res.json({ message: 'Product has been deleted successfully' });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'Server Error' });
+    }
+  };
+  
