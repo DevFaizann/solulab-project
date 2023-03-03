@@ -1,12 +1,15 @@
-const Category = require('../models/category.model');
+const Category = require('../models/category.model.js');
+
+console.log(Category);
+
 
 //Creating a new category
 exports.createCategory = async(req, res) => {
     try {
-        const {categoryId, categoryName} = req.body;
+        const {categoryName} = req.body;
 
         const newCategory = new Category({
-            categoryId,
+            // categoryId,
             categoryName
         });
 
@@ -20,21 +23,16 @@ exports.createCategory = async(req, res) => {
 };
 
 //Reading a category
-exports.readCategoryById = async(req,res) => {
+exports.readCategoryById = async (req,res) => {
     try {
-        const { categoryId } = req.params;
-
-        const category = await Category.findOne({categoryId});
-
+        const category = await Category.findById(req.params.id);
         if(!category){
-            return res.status(404).json({message: "Category not found"});
+            return res.status(404).json({message: "Category Not Found!"});
         }
-
         res.json(category);
     } catch (error) {
-        console.log(error);
-        res.status(500).json({message: 'Server error'});
-        
+        console.error(error);
+        res.status(500).json({message:'Server Error'});
     }
 };
 

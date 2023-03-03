@@ -1,2 +1,20 @@
 {"level":"info","message":"Server started on port ${config.PORT}"}
 {"level":"info","message":"Server started on port ${config.PORT}"}
+{"level":"info","message":"Server started on port ${config.PORT}"}
+{"level":"error","message":"SyntaxError: Unexpected token / in JSON at position 7\n    at JSON.parse (<anonymous>)\n    at parse (D:\\Solulab-Assignment\\node_modules\\body-parser\\lib\\types\\json.js:89:19)\n    at D:\\Solulab-Assignment\\node_modules\\body-parser\\lib\\read.js:128:18\n    at AsyncResource.runInAsyncScope (node:async_hooks:202:9)\n    at invokeCallback (D:\\Solulab-Assignment\\node_modules\\raw-body\\index.js:231:16)\n    at done (D:\\Solulab-Assignment\\node_modules\\raw-body\\index.js:220:7)\n    at IncomingMessage.onEnd (D:\\Solulab-Assignment\\node_modules\\raw-body\\index.js:280:7)\n    at IncomingMessage.emit (node:events:539:35)\n    at endReadableNT (node:internal/streams/readable:1345:12)\n    at processTicksAndRejections (node:internal/process/task_queues:83:21)"}
+{"level":"info","message":"Server started on port ${config.PORT}"}
+{"level":"error","message":"SyntaxError: Unexpected token / in JSON at position 7\n    at JSON.parse (<anonymous>)\n    at parse (D:\\Solulab-Assignment\\node_modules\\body-parser\\lib\\types\\json.js:89:19)\n    at D:\\Solulab-Assignment\\node_modules\\body-parser\\lib\\read.js:128:18\n    at AsyncResource.runInAsyncScope (node:async_hooks:202:9)\n    at invokeCallback (D:\\Solulab-Assignment\\node_modules\\raw-body\\index.js:231:16)\n    at done (D:\\Solulab-Assignment\\node_modules\\raw-body\\index.js:220:7)\n    at IncomingMessage.onEnd (D:\\Solulab-Assignment\\node_modules\\raw-body\\index.js:280:7)\n    at IncomingMessage.emit (node:events:539:35)\n    at endReadableNT (node:internal/streams/readable:1345:12)\n    at processTicksAndRejections (node:internal/process/task_queues:83:21)"}
+{"level":"info","message":"Server started on port ${config.PORT}"}
+{"level":"info","message":"Server started on port ${config.PORT}"}
+{"level":"info","message":"Server started on port ${config.PORT}"}
+{"level":"info","message":"Server started on port ${config.PORT}"}
+{"level":"info","message":"Server started on port ${config.PORT}"}
+{"level":"info","message":"Server started on port ${config.PORT}"}
+{"level":"info","message":"Server started on port ${config.PORT}"}
+{"level":"info","message":"Server started on port ${config.PORT}"}
+{"level":"info","message":"Server started on port ${config.PORT}"}
+{"level":"info","message":"Server started on port ${config.PORT}"}
+{"level":"info","message":"Server started on port ${config.PORT}"}
+{"level":"info","message":"Server started on port ${config.PORT}"}
+{"level":"info","message":"Server started on port ${config.PORT}"}
+{"level":"info","message":"Server started on port ${config.PORT}"}

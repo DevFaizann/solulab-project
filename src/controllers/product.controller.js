@@ -1,6 +1,8 @@
-const Product = require('../models/product.model');
-const Category = require('../models/category.model');
+const Product = require('../models/product.model.js');
+const Category = require('../models/category.model.js');
 const { json } = require('express/lib/response');
+const mongoose = require('mongoose');
+const ObjectId = mongoose.Types.ObjectId;
 
 //Creating a new product
 exports.createProduct = async (req,res) =>{
@@ -42,7 +44,7 @@ exports.readProductById = async (req,res) => {
         //for a product in the Product collection by its 'id'.
         //so 'req.params.id' is referred to the value of the 'id' parameter in the request URL,
         //which is used to find the document witht the corresponding id
-        const product = await Product.findById(req.params.id).populate('categoryId');
+        const product = await Product.findById(ObjectId(req.params.id)).populate('categoryId');
         if(!product){
             return res.status(404).json({message: "Product Not Found!"});
         }

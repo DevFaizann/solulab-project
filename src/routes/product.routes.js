@@ -6,7 +6,7 @@ const {
     readProducts,
     updateProduct,
     deleteProduct
-} = require('../controllers/product.controller');
+} = require('../controllers/product.controller.js');
 
 //Create a new product
 router.post('/', createProduct);

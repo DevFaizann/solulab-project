@@ -4,7 +4,7 @@ const categorySchema = new Schema({
     categoryId: {//Category ID
         type: String,
         required: true,
-        unique: true //this avaoid duplication of categories
+        unique: true //this avoid duplication of categories
     },
     categoryName: {
         type: String,
@@ -12,6 +12,7 @@ const categorySchema = new Schema({
     }
 });
 
-const Category = model('Category', categorySchema);
+// const Category = model('Category', categorySchema);
 
-module.exports - Category;
+// module.exports - Category;
+module.exports = model('Category', categorySchema);
