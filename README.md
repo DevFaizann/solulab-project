@@ -4,8 +4,8 @@ This project is a RESTful API that allows for creating, reading, updating, and d
 ## Functionality
 The API provides the following functionality:
 * `/create` - Creates a new product and category
-* `/read/:productId` - Reads a particular record from the product table (if product has any category then category should be fetched in the response)
-* `/readAll` - Reads all the records from the product table (if product has any category then category should be fetched in the response)
+* `/read/:productId` - Reads a particular record from the product table.
+* `/readAll` - Reads all the records from the product table.
 * `/update/:productId` - Updates one particular record of the product
 * `/delete/:productId` - Deletes one particular record of the product.
 
