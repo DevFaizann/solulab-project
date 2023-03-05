@@ -11,6 +11,26 @@ The API provides the following functionality:
 
 ## Dependencies
 The project uses the following dependencies:
+        {
+            "dependencies": {
+                "config": "^3.3.9",
+                "dotenv": "^16.0.3",
+                "express": "^4.18.2",
+                "mongodb": "^5.1.0",
+                "mongoose": "^7.0.0",
+                "winston": "^3.8.2"
+            },
+            "devDependencies": {
+                "jest": "^29.4.3",
+                "nodemon": "^2.0.20",
+                "supertest": "^6.3.3"
+            },
+            "scripts": {
+                "start": "nodemon src/app.js",
+                "test": "jest"
+            }
+        }
+
 
 ## Setup
 To set up the project:
