@@ -2,14 +2,13 @@ const Category = require('../models/category.model.js');
 
 console.log(Category);
 
-
 //Creating a new category
 exports.createCategory = async(req, res) => {
     try {
-        const {categoryName} = req.body;
+        const {categoryId,categoryName} = req.body;
 
         const newCategory = new Category({
-            // categoryId,
+            categoryId,
             categoryName
         });
 

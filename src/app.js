@@ -9,8 +9,8 @@ const app = express();
 app.use(express.json());
 
 //Routes
-app.use('/api', require('./routes/product.routes'));
-app.use('/api', require('./routes/category.routes'));
+app.use('/api', require('./routes/product.routes.js'));
+app.use('/api', require('./routes/category.routes.js'));
 
 //Error Handling
 //app.use() func takes four arguments
@@ -23,7 +23,7 @@ app.use((err, req, res, next) => {
 
 //Start server
 app.listen(config.PORT, () => {
-    logger.info("Server started on port ${config.PORT}");
+    logger.info(`Server started on port ${config.PORT}`);
 });
 
 module.exports = app;
