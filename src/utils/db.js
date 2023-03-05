@@ -1,14 +1,14 @@
 //destructuring
 const { MongoClient } = require('mongodb');
-const config = require('./config.js');
+const config = require('../config');
 
 const client = new MongoClient(config.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 });
 
-//this function exports a promise that resolves once the connection is established
-async function connectToDatabase(){
+
+const connectToDatabase = async()=>{
     try{
         await client.connect();
         console.log("Connected to database");
@@ -17,7 +17,5 @@ async function connectToDatabase(){
     }
 }
 
-module.exports = {
-    connectToDatabase,
-};
+module.exports =connectToDatabase;
 

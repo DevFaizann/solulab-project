@@ -2,6 +2,7 @@ const express = require('express');
 const logger = require('./utils/logger.js');
 const config = require('./config.js');
 
+const connectToDatabase = require('./utils/db.js');
 const app = express();
 
 //Middleware
@@ -20,9 +21,12 @@ app.use((err, req, res, next) => {
     logger.error(err.stack);
     res.status(500).send('Something went wrong!;')
 });
-
+connectToDatabase();
 //Start server
-app.listen(config.PORT, () => {
+// app.listen(config.PORT, () => {
+//     logger.info(`Server started on port ${config.PORT}`);
+// });
+app.listen(3000, () => {
     logger.info(`Server started on port ${config.PORT}`);
 });
 
