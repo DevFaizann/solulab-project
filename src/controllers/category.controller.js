@@ -16,8 +16,8 @@ exports.createCategory = async(req, res) => {
 
         res.json(newCategory);
     } catch (error) {
-        console.error(error);
-        res.status(500).json({message: 'Server Error'});
+        // console.error(error);
+        res.status(500).json({message: 'Server Error', error});
     }
 };
 

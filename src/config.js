@@ -4,5 +4,5 @@ dotenv.config();
 
 module.exports = {
     PORT: process.env.PORT | 3000,
-    MONGODB_URI: 'mongodb+srv://dbFaizan:dbFaizanPassword@cluster0.skjmkiq.mongodb.net/?retryWrites=true&w=majority',
+    MONGODB_URI: 'mongodb://127.0.0.1:27017/faizandb',
 };

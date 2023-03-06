@@ -1,10 +1,19 @@
 const express = require('express');
 const router = express.Router();
 //importing the category controller
-const { createCategory, readCategoryById, readCategories, updateCategory, deleteCategory } = require('../controllers/category.controller.js');
+const { 
+        createCategory,
+        readCategoryById, 
+        readCategories, 
+        updateCategory, 
+        deleteCategory 
+    } = require('../controllers/category.controller.js');
 
 //Route to create a new category
 router.post('/categories', createCategory);
+// router.get('/trial', (req,res) => {
+//     res.send("i am a trial")
+// })
 
 //Route to get all categories
 router.get('/categories', readCategories);
