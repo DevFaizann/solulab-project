@@ -1,22 +1,35 @@
 const Category = require('../models/category.model.js');
 
-console.log(Category);
+const { ObjectID } = require('mongodb');
+const { getDb } = require('../utils/db');
+
+// console.log(Category);
 
 //Creating a new category
 exports.createCategory = async(req, res) => {
     try {
-        const {categoryId,categoryName} = req.body;
+        const { categoryId,categoryName } = req.body;
 
-        const newCategory = new Category({
+        const db = getDb();
+
+        const result = await db.collection('categories').insertOne({
+            _id: new ObjectID(),
             categoryId,
-            categoryName
+            categoryName,
         });
 
-        await newCategory.save();
+        // const newCategory = new Category({
+        //     categoryId,
+        //     categoryName
+        // });
 
-        res.json(newCategory);
+        // await newCategory.save();
+
+        // res.json(newCategory);
+
+        res.json(result.ops[0]);
     } catch (error) {
-        // console.error(error);
+        console.error(error);
         res.status(500).json({message: 'Server Error', error});
     }
 };

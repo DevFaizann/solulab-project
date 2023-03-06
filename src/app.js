@@ -4,7 +4,7 @@ const config = require('./config.js');
 
 // const getRoutes = require('./routes/category.routes.js');
 
-const connectToDatabase = require('./utils/db.js');
+const {client, connectToDatabase} = require('./utils/db.js');
 const app = express();
 
 

@@ -4,6 +4,8 @@ const config = require('../config');
 const client = new MongoClient(config.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    connectTimeoutMS: 10000, // 10 seconds
+    socketTimeoutMS: 30000 // 30 seconds
 });
 
 
@@ -14,7 +16,14 @@ const connectToDatabase = async()=>{
     } catch(err){
         console.error(err);
     }
-}
+};
 
-module.exports =connectToDatabase;
+const getDb = ()=> {
+    return client.db();
+};
+
+module.exports ={
+    client,
+    connectToDatabase
+};
 

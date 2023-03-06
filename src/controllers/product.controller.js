@@ -7,7 +7,7 @@ const ObjectId = mongoose.Types.ObjectId;
 //Creating a new product
 exports.createProduct = async (req,res) =>{
     try {
-        const {productId, productName, qtyPerUnit, unitPrice, unitInStock, discontinued, categoryId} = req.body;
+        const {productId, productName, qtyPerUnit, unitPrice, unitInStock, discontinued, categoryId, categoryName} = req.body;
 
         //Lets find the category you want to add your product to
         let category = await Category.findOne({categoryName});
@@ -15,9 +15,9 @@ exports.createProduct = async (req,res) =>{
         //if category does not exist, create a new one
         if(!category){
             category = new Category({categoryName});
-            await Category.save();
+            await category.save();
         }
-
+S
         //continue with creating the product
         const newProduct = new Product({
             productId,
@@ -26,11 +26,13 @@ exports.createProduct = async (req,res) =>{
             unitPrice,
             unitInStock,
             discontinued,
-            categoryId: categoryId
+            categoryId: category._id,
+            categoryName: category.categoryName
         });
 
-        const savedProduct = await newProduct.save();
-        res.json(savedProduct);
+        await newProduct.save();
+
+        res.json({message: "Product created successfully!"});
     } catch (error) {
         console.error(error);
         res.status(500).json({message: 'Server error'});
@@ -40,11 +42,19 @@ exports.createProduct = async (req,res) =>{
 //Searching for a particular product along with their category name
 exports.readProductById = async (req,res) => {
     try {
+
+        const id = req.params.id;
+
+        if(!mongoose.Types.ObjectId.isValid(id)) {
+            return res.status(400).json({message: 'Invalid id'});
+        }
         //as the name suggests, here, "findById" is a mongoose method to search
         //for a product in the Product collection by its 'id'.
         //so 'req.params.id' is referred to the value of the 'id' parameter in the request URL,
         //which is used to find the document witht the corresponding id
-        const product = await Product.findById(ObjectId(req.params.id)).populate('categoryId');
+    
+        // const product = await Product.findById(new ObjectId(req.params.id)).populate('categoryId');
+        const product = await Product.findById(id).populate('categoryId');
         if(!product){
             return res.status(404).json({message: "Product Not Found!"});
         }
